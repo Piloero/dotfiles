@@ -1,7 +1,3 @@
-(defcfg
-  process-unmapped-keys yes
-)
-
 (defsrc
   caps a s d f j k l ;
 )
