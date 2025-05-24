@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 {
@@ -39,7 +40,7 @@
         ];
 
         extraDefCfg = "process-unmapped-keys yes";
-        config = builtins.readFile ../dotfiles/kanata/kanata.kdb;
+        config = builtins.readFile ../dotfiles/kanata/kanata.kbd;
       };
     };
   };

@@ -6,7 +6,7 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable }:
+  outputs = { self, nixpkgs, nixpkgs-unstable } @ inputs :
     let
 
       system = "x86_64-linux";
@@ -30,7 +30,7 @@
 
           system = system;
 
-          modules = [ ./systems/laptop.nix ];
+          modules = [ ./systems/pluto.nix ];
 
           specialArgs = {
             inherit system;
