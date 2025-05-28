@@ -2,11 +2,12 @@
   description = "The PiSystem flake ^_^";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable } @ inputs :
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixos-wsl } @ inputs :
     let
 
       system = "x86_64-linux";
@@ -33,8 +34,20 @@
           modules = [ ./systems/pluto.nix ];
 
           specialArgs = {
-            inherit system;
-            inherit pkgs-unstable;
+            inherit system pkgs-unstable;
+          };
+        };
+
+        busybeaver = nixpkgs-unstable.lib.nixosSystem {
+
+          system = system;
+
+          modules = [
+            ./systems/busybeaver.nix
+          ];
+
+          specialArgs = {
+            inherit system pkgs-unstable inputs;
           };
         };
       };
