@@ -6,15 +6,13 @@
 }:
 
 {
-
-  # List packages installed in system profile. To search, run:
   environment.systemPackages = with pkgs; [
     stow
     wget
 
     openconnect
 
-    git
+    git # TODO move to own file with config
     zsh
 
     dmidecode
@@ -40,22 +38,5 @@
 
     lsyncd
   ];
-
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    vimAlias = true;
-    viAlias = true;
-    configure = {
-      customRC = ''
-        set number relativenumber
-        set cc=100
-        set list
-      '';
-    };
-  };
-
-
 }
 

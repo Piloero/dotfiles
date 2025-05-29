@@ -9,18 +9,15 @@
     # hardware
     ./laptop-hardware-configuration.nix
     # general stuff
-    ../modules/general/cli-tools.nix
-    ../modules/unstable_pkgs.nix
-    # keyboard
-    ../modules/keyboard.nix
-    ../modules/kanata.nix
-    # tiling vm
-    ../modules/hyprland.nix
-    # gaming
-    ../modules/gaming/gaming.nix
+    ../../modules/general/default.nix
+    # desktop specific
+    ../../modules/desktop/default.nix
+    # gaming stuff
+    ../../modules/gaming/gaming.nix
+    # programming
+    ../../modules/programming/tools.nix
+    ../../modules/programming/python/python.nix
   ];
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -54,24 +51,6 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-  # # Enable the KDE Desktop Environment
-  # services.displayManager.sddm.enable = true;
-  # services.displayManager.sddm.wayland.enable = true;
-  # services.desktopManager.plasma6.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "de";
-    variant = "";
-  };
-
   # Configure console keymap
   console.keyMap = "de";
 
@@ -79,7 +58,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -103,57 +82,7 @@
     isNormalUser = true;
     description = "jonas";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      # kdePackages.okular
-      scribus
-      xournalpp
-      naps2
-    ];
-  };
-
-  # Install firefox.
-  programs.firefox.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  environment.systemPackages = with pkgs; [
-    duckdb
-    gimp
-
-    jetbrains.idea-ultimate
-    jetbrains.clion
-
-    brave
-
-    obsidian
-    signal-desktop
-
-    elan
-    scala_3
-    graphviz
-
-    gcc
-    rustup
-    llvmPackages.bintools
-
-    (pkgs.python3.withPackages (ps: with ps; [ sympy ipykernel numpy sympy icecream]))
-
-    megasync
-
-    keepassxc
-    rclone
-
-    usbimager
-
-    libwacom
-    xf86_input_wacom
-  ];
-
-  programs.direnv = {
-    enable = true;
-    enableBashIntegration = true;
+    packages = with pkgs; [];
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -163,8 +92,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
@@ -182,12 +109,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-
-  services.flatpak.enable = true;
-
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-  };
 }

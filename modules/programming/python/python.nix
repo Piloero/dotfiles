@@ -1,6 +1,9 @@
-    
-{ config, pkgs, pkgs-unstable, ... }:
-
+{ 
+  config, 
+  pkgs, 
+  pkgs-unstable, 
+  ... 
+}:
 {
   # List packages installed in system profile. To search, run:
   environment.systemPackages = with pkgs; [

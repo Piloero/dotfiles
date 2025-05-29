@@ -31,7 +31,7 @@
 
           system = system;
 
-          modules = [ ./systems/pluto.nix ];
+          modules = [ ./systems/pluto/pluto.nix ];
 
           specialArgs = {
             inherit system pkgs-unstable;
@@ -43,7 +43,7 @@
           system = system;
 
           modules = [
-            ./systems/busybeaver.nix
+            ./systems/busybeaver/busybeaver.nix
           ];
 
           specialArgs = {
