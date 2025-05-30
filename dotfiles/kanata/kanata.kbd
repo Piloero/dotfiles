@@ -1,10 +1,24 @@
 (defsrc
-  caps a s d f j k l ;
+                       u     o
+  caps  a  s  d  f     j  k  l  ; 
+                 v  n
 )
 
 (defvar
   tap-time 150
   hold-time 200
+)
+
+(deflayer base  
+                                _       _
+  @escctrl  @a  @s  @d  @f      @j  @k  @l  @;
+                        @v  @n
+)
+
+(deflayer $umlauts
+                                @ue     @oe
+  @escctrl  @ae @sz @d  @f      @j  @k  @l  @;
+                        _   _
 )
 
 (defalias
@@ -17,8 +31,16 @@
   k (tap-hold $tap-time $hold-time k rsft)
   l (tap-hold $tap-time $hold-time l lalt)
   ; (tap-hold $tap-time $hold-time ; rmet)
-)
-
-(deflayer base
-  @escctrl @a @s @d @f @j @k @l @;
+  n (tap-hold $tap-time $hold-time n (layer-while-held $umlauts))
+  v (tap-hold $tap-time $hold-time v (layer-while-held $umlauts))
+  Ae (unicode Ä)
+  Ue (unicode Ü)
+  Oe (unicode Ö)
+  sz (unicode ß)
+  ae (unicode ä)
+  ue (unicode ü)
+  oe (unicode ö)
+  _ae (fork @ae @Ae (lsft rsft))
+  _ue (fork @ue @Ue (lsft rsft))
+  _oe (fork @oe @Oe (lsft rsft))
 )
