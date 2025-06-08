@@ -37,6 +37,16 @@
     yazi
 
     lsyncd
+
+    fzf
   ];
+
+  programs.zoxide = {
+    enable = true;
+    enableBashIntegration = true;
+    flags = [
+      "--cmd cd"
+    ];
+  };
 }
 

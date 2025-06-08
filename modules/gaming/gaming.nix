@@ -5,6 +5,8 @@
   environment.systemPackages = with pkgs; [
     vesktop
     discord-ptb
+    
+    teamspeak6-client
 
     atlauncher
     prismlauncher
