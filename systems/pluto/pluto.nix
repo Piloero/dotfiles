@@ -12,6 +12,8 @@
     ../../modules/general/default.nix
     # desktop specific
     ../../modules/desktop/default.nix
+    # kanata keyboard config
+    ../../modules/desktop/kanata.nix
     # gaming stuff
     ../../modules/gaming/gaming.nix
     # programming
