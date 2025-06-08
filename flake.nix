@@ -26,12 +26,15 @@
 
     in {
 
+      # TODO make function
       nixosConfigurations = {
         pluto = lib.nixosSystem {
 
           system = system;
 
-          modules = [ ./systems/pluto/pluto.nix ];
+          modules = [ 
+            ./systems/pluto/pluto.nix 
+          ];
 
           specialArgs = {
             inherit system pkgs-unstable;
@@ -50,6 +53,20 @@
             inherit system pkgs-unstable inputs;
           };
         };
+
+        uranus = lib.nixosSystem {
+
+          system = system;
+
+          modules = [ 
+            ./systems/uranus/uranus.nix
+          ];
+
+          specialArgs = {
+            inherit system pkgs-unstable;
+          };
+        };
+
       };
     };
 }
