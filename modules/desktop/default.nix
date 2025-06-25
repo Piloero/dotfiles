@@ -30,7 +30,7 @@
     brave
 
     obsidian
-    signal-desktop
+    pkgs-unstable.signal-desktop
 
     elan
     scala_3
