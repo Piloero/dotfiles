@@ -18,6 +18,7 @@
     ../../modules/gaming/gaming.nix
     # programming
     ../../modules/programming/tools.nix
+    ../../modules/programming/docker.nix
     ../../modules/programming/python/python.nix
   ];
 
@@ -83,7 +84,7 @@
   users.users.jonas = {
     isNormalUser = true;
     description = "jonas";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker"];
     packages = with pkgs; [];
   };
 
