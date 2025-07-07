@@ -1,7 +1,8 @@
 {
   config, 
   pkgs, 
-  pkgs-unstable, 
+  pkgs-unstable,
+  lib,
   ... 
 }:
 
@@ -20,7 +21,7 @@
 
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "de";
+    layout = lib.mkDefault "de";
     variant = "";
   };
 }

@@ -1,7 +1,11 @@
-{ config, pkgs, pkgs-unstable, ... }:
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+# and in the NixOS manual (accessible by running ‘nixos-help’).
+
+{ config, pkgs, ... }:
 
 {
-  imports = [     
+  imports = [ 
     # hardware
     ./desktop-hardware-configuration.nix
     # general stuff
@@ -17,11 +21,15 @@
     ../../modules/desktop/nvidia.nix
   ];
 
-  # Bootloader
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # Bootloader.
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/nvme0n1";
+  boot.loader.grub.useOSProber = true;
 
-  networking.hostName = "uranus"; 
+  # Use latest kernel.
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  networking.hostName = "uranus"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -49,8 +57,18 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  # Configure console keymap
-  console.keyMap = "us";
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
+
+  # Enable the GNOME Desktop Environment.
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+
+  # Configure keymap in X11
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -63,7 +81,6 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
 
@@ -91,6 +108,8 @@
   #   enableSSHSupport = true;
   # };
 
+  # List services that you want to enable:
+
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
@@ -106,5 +125,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
+
 }
