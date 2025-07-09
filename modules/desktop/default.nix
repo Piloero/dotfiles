@@ -56,5 +56,9 @@
     scribus
     xournalpp
     naps2
+
+    copyq
+
+    audacity
   ];
 }
