@@ -21,6 +21,8 @@
     ../../modules/desktop/nvidia.nix
   ];
 
+  hardware.opengl.enable = true;
+
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/nvme0n1";
