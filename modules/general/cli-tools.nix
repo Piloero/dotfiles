@@ -39,6 +39,8 @@
     lsyncd
 
     fzf
+
+    jq
   ];
 
   programs.zoxide = {
