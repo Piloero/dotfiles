@@ -41,7 +41,14 @@
     fzf
 
     jq
+
+    devenv
   ];
+
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+  };
 
   programs.zoxide = {
     enable = true;

@@ -14,6 +14,9 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
   nix = {
     gc = {
       automatic = true;
@@ -24,12 +27,4 @@
       download-buffer-size = 500000000; # 500 MB
     };
   };
-
-  programs.direnv = {
-    enable = true;
-    enableBashIntegration = true;
-  };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 }
