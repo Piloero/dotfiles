@@ -1,8 +1,8 @@
-{ 
-  config, 
-  pkgs, 
-  pkgs-unstable, 
-  ... 
+{
+  config,
+  pkgs,
+  pkgs-unstable,
+  ...
 }:
 
 {
@@ -40,7 +40,15 @@
     rustup
     llvmPackages.bintools
 
-    (pkgs.python3.withPackages (ps: with ps; [ sympy ipykernel numpy sympy icecream]))
+    (pkgs.python3.withPackages (
+      ps: with ps; [
+        sympy
+        ipykernel
+        numpy
+        sympy
+        icecream
+      ]
+    ))
 
     megasync
 

@@ -2,10 +2,16 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, pkgs-unstable, ... }:
+{
+  config,
+  pkgs,
+  pkgs-unstable,
+  ...
+}:
 
 {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     # hardware
     ./laptop-hardware-configuration.nix
     # general stuff
@@ -84,8 +90,12 @@
   users.users.jonas = {
     isNormalUser = true;
     description = "jonas";
-    extraGroups = [ "networkmanager" "wheel" "docker"];
-    packages = with pkgs; [];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
+    packages = with pkgs; [ ];
   };
 
   # Some programs need SUID wrappers, can be configured further or are

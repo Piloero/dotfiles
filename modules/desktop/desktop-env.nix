@@ -1,9 +1,9 @@
 {
-  config, 
-  pkgs, 
+  config,
+  pkgs,
   pkgs-unstable,
   lib,
-  ... 
+  ...
 }:
 
 {

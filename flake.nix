@@ -7,24 +7,35 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixos-wsl } @ inputs :
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      nixos-wsl,
+    }@inputs:
     let
 
       system = "x86_64-linux";
 
       pkgs-stable = import nixpkgs {
         inherit system;
-        config = { allowUnfree = true; };
+        config = {
+          allowUnfree = true;
+        };
       };
 
       pkgs-unstable = import nixpkgs-unstable {
         inherit system;
-        config = { allowUnfree = true; };
+        config = {
+          allowUnfree = true;
+        };
       };
 
       lib = nixpkgs.lib;
 
-    in {
+    in
+    {
 
       # TODO make function
       nixosConfigurations = {
@@ -32,8 +43,8 @@
 
           system = system;
 
-          modules = [ 
-            ./systems/pluto/pluto.nix 
+          modules = [
+            ./systems/pluto/pluto.nix
           ];
 
           specialArgs = {
@@ -58,7 +69,7 @@
 
           system = system;
 
-          modules = [ 
+          modules = [
             ./systems/uranus/uranus.nix
           ];
 

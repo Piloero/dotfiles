@@ -5,7 +5,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ 
+  imports = [
     # hardware
     ./desktop-hardware-configuration.nix
     # general stuff
@@ -98,8 +98,11 @@
   users.users.piloero = {
     isNormalUser = true;
     description = "piloero";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
+    packages = with pkgs; [ ];
   };
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -1,8 +1,8 @@
-{ 
-  config, 
-  pkgs, 
-  pkgs-unstable, 
-  ... 
+{
+  config,
+  pkgs,
+  pkgs-unstable,
+  ...
 }:
 
 {
@@ -42,7 +42,9 @@
 
     jq
 
+    # nix
     devenv
+    nixfmt-rfc-style
   ];
 
   programs.direnv = {
@@ -58,4 +60,3 @@
     ];
   };
 }
-

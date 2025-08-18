@@ -1,8 +1,8 @@
-{ 
-  config, 
-  pkgs, 
-  pkgs-unstable, 
-  ... 
+{
+  config,
+  pkgs,
+  pkgs-unstable,
+  ...
 }:
 {
   # In /etc/nixos/configuration.nix
