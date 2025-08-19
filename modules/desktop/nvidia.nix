@@ -51,5 +51,6 @@
 
   environment.systemPackages = [
     pkgs.zenith-nvidia
+    pkgs.nvitop
   ];
 }
