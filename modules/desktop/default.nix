@@ -68,5 +68,7 @@
     copyq
 
     audacity
+
+    rustdesk
   ];
 }
