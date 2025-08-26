@@ -7,8 +7,9 @@
 
 {
   environment.systemPackages = with pkgs; [
-    copyq
-
+    ### --------------- ###
+    ###       CLI       ###
+    ### --------------- ###
     rclone
 
     stow
@@ -50,6 +51,12 @@
     devenv
     nixfmt-rfc-style
     nixfmt-tree
+
+    ### --------------- ###
+    ###       GUI       ###
+    ### --------------- ###
+    copyq
+    postman
   ];
 
   programs.direnv = {

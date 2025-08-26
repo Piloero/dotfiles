@@ -8,7 +8,7 @@
 {
   imports = [
     ./programming_languages/default.nix
-    ./cli-tools.nix
+    ./tools.nix
     ./docker.nix
     ./fonts.nix
     ./vim.nix
