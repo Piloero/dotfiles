@@ -4,56 +4,20 @@
   pkgs-unstable,
   ...
 }:
-
-{
-  imports = [
-    ./filen.nix
-    ./hyprland.nix
-    ./keyboard.nix
-    ./kanata.nix
-    ./desktop-env.nix
+let
+  unstablePackages = with pkgs-unstable; [
+    ghostty
+    vscode
   ];
 
-  services.flatpak.enable = true;
-
-  # Install firefox.
-  programs.firefox.enable = true;
-
-  # List packages installed in system profile. To search, run:
-  environment.systemPackages = with pkgs; [
+  stablePackages = with pkgs; [
     duckdb
     gimp
-
-    jetbrains.idea-ultimate
-    jetbrains.clion
-
-    brave
 
     obsidian
     pkgs-unstable.signal-desktop
 
-    elan
-    scala_3
-    graphviz
-
-    gcc
-    rustup
-    llvmPackages.bintools
-
-    (pkgs.python3.withPackages (
-      ps: with ps; [
-        sympy
-        ipykernel
-        numpy
-        sympy
-        icecream
-      ]
-    ))
-
-    megasync
-
     keepassxc
-    rclone
 
     usbimager
 
@@ -65,10 +29,24 @@
     xournalpp
     naps2
 
-    copyq
-
     audacity
 
     rustdesk
   ];
+in
+{
+  imports = [
+    ./hyprland.nix
+    ./keyboard.nix
+    ./x11-desktop-env.nix
+    # APPS
+    ./apps/jetbrains.nix
+    # ./apps/kanata.nix
+    ./apps/sync_files.nix
+    ./apps/web.nix
+  ];
+
+  services.flatpak.enable = true;
+
+  environment.systemPackages = stablePackages ++ unstablePackages;
 }

@@ -14,9 +14,6 @@
     ../../modules/desktop/default.nix
     # gaming stuff
     ../../modules/gaming/gaming.nix
-    # programming
-    ../../modules/programming/tools.nix
-    ../../modules/programming/python/python.nix
     # nvidia
     ../../modules/desktop/nvidia.nix
   ];

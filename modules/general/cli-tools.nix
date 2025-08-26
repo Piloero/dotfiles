@@ -7,6 +7,10 @@
 
 {
   environment.systemPackages = with pkgs; [
+    copyq
+
+    rclone
+
     stow
     wget
 
@@ -45,6 +49,7 @@
     # nix
     devenv
     nixfmt-rfc-style
+    nixfmt-tree
   ];
 
   programs.direnv = {

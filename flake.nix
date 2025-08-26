@@ -52,19 +52,6 @@
           };
         };
 
-        busybeaver = nixpkgs-unstable.lib.nixosSystem {
-
-          system = system;
-
-          modules = [
-            ./systems/busybeaver/busybeaver.nix
-          ];
-
-          specialArgs = {
-            inherit system pkgs-unstable inputs;
-          };
-        };
-
         uranus = lib.nixosSystem {
 
           system = system;
@@ -78,6 +65,18 @@
           };
         };
 
+        busybeaver = nixpkgs-unstable.lib.nixosSystem {
+
+          system = system;
+
+          modules = [
+            ./systems/busybeaver/busybeaver.nix
+          ];
+
+          specialArgs = {
+            inherit system pkgs-unstable inputs;
+          };
+        };
       };
     };
 }

@@ -7,9 +7,11 @@
 
 {
   imports = [
-    ./vim.nix
-    ./fonts.nix
+    ./programming_languages/default.nix
     ./cli-tools.nix
+    ./docker.nix
+    ./fonts.nix
+    ./vim.nix
   ];
 
   nix.settings.experimental-features = [

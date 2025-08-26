@@ -19,13 +19,9 @@
     # desktop specific
     ../../modules/desktop/default.nix
     # kanata keyboard config
-    ../../modules/desktop/kanata.nix
+    ../../modules/desktop/apps/kanata.nix
     # gaming stuff
     ../../modules/gaming/gaming.nix
-    # programming
-    ../../modules/programming/tools.nix
-    ../../modules/programming/docker.nix
-    ../../modules/programming/python/python.nix
   ];
 
   # Bootloader
