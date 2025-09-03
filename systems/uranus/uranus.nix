@@ -18,7 +18,11 @@
     ../../modules/desktop/nvidia.nix
   ];
 
-  hardware.opengl.enable = true;
+
+  # get totem (gnome videos ) to work
+  environment.variables.GDK_GL = "gles";
+
+  # hardware.graphics.enable = true;
 
   # Bootloader.
   boot.loader.grub.enable = true;
