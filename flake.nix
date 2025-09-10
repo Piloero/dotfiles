@@ -72,6 +72,19 @@
           };
         };
 
+      saturn = lib.nixosSystem {
+
+          system = system;
+
+          modules = [
+            ./systems/saturn/saturn.nix
+          ];
+
+          specialArgs = {
+            inherit system pkgs-unstable;
+          };
+        };
+
         busybeaver = nixpkgs-unstable.lib.nixosSystem {
 
           system = system;
