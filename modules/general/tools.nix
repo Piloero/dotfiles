@@ -52,6 +52,8 @@
     nixfmt-rfc-style
     nixfmt-tree
 
+    bind # nslookup
+
     ### --------------- ###
     ###       GUI       ###
     ### --------------- ###
