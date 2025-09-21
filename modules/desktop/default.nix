@@ -32,6 +32,12 @@ let
     audacity
 
     rustdesk
+
+    freecad-wayland
+
+    passmark-performancetest
+
+    gcolor3
   ];
 in
 {

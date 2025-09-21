@@ -27,7 +27,8 @@
 
     bat
 
-    btop
+    # btop
+    btop-cuda
     htop
 
     fd
@@ -53,6 +54,9 @@
     nixfmt-tree
 
     bind # nslookup
+
+    # Linux Control tools
+    smartmontools
 
     ### --------------- ###
     ###       GUI       ###
