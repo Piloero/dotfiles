@@ -63,7 +63,7 @@
     vim
     obsidian
     git
-    jetbrains.pycharm-community
+    # jetbrains.pycharm-community
   ];
 
   programs.nix-ld = {
