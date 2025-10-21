@@ -12,6 +12,7 @@
     ./docker.nix
     ./fonts.nix
     ./vim.nix
+    ./shell.nix
   ];
 
   nix.settings.experimental-features = [

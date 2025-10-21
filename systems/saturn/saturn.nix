@@ -91,12 +91,16 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  users.defaultUserShell = pkgs.zsh;
+  environment.shells = with pkgs; [ zsh ];
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.piloero = {
     isNormalUser = true;
     description = "piloero";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [ ];
+    useDefaultShell = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
