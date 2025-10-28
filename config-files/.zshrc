@@ -12,3 +12,6 @@ compinit
 # End of lines added by compinstall
 
 bindkey '^R' history-incremental-search-backward
+
+# Starship
+eval "$(starship init zsh)"
