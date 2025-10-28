@@ -49,6 +49,4 @@
     enableBashIntegration = true;
     enableZshIntegration = true;
   };
-
-
 }

@@ -19,14 +19,15 @@ bindkey '^R' history-incremental-search-backward
 # =============
 # oh my zsh
 # =============
+export ZSH_CUSTOM="~/.zsh/custom"
 plugins=(
   git
-  bundler
-  dotenv
-  macos
-  rake
-  rbenv
-  ruby
+  eza
+  fzf
+  git-commit
+
+  # custom
+  # global-alias
 )
 source $ZSH/oh-my-zsh.sh
 
