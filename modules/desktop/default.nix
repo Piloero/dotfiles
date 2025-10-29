@@ -38,6 +38,9 @@ let
     passmark-performancetest
 
     gcolor3
+
+    # VPN
+    networkmanager-openvpn
   ];
 in
 {
