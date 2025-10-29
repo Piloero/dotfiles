@@ -22,5 +22,48 @@
         setOptions = [
             "HIST_IGNORE_ALL_DUPS"
         ];
+        ohMyZsh = {
+            enable = true;
+        };
     };
+
+    environment.systemPackages = with pkgs; [
+        starship
+        oh-my-zsh
+
+        # =====================
+        # Command Line Tools
+        # =====================
+        stow
+
+        fzf
+
+        jq
+
+        fd
+        eza
+        tldr
+        duf
+        lsd
+        ripgrep
+        tmux
+        zellij
+        helix
+        yazi
+        bat
+
+        fastfetch
+    ];  
+    
+    programs.zoxide = {
+      enable = true;
+      enableBashIntegration = true;
+      enableZshIntegration = true;
+      flags = [
+        "--cmd cd"
+      ];
+    };
+
+    users.defaultUserShell = pkgs.zsh;
+    environment.shells = with pkgs; [ zsh ];
 }

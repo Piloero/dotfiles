@@ -1,0 +1,48 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+
+command_timeout = 1300
+scan_timeout = 60
+
+follow_symlinks = true
+
+format = "$all$battery"
+# format = '''
+# [┌───────────────────>](bold green)
+# [│](bold green)$directory$rust$package
+# [└─>](bold green) '''
+
+# Set 'foo' as custom color palette
+palette = 'foo'
+
+[character]
+success_symbol = "[->](bold green) "
+error_symbol = "[-x](bold red) "
+
+# Define custom colors
+[palettes.foo]
+# Overwrite existing color
+blue = '21'
+# Define new color
+mustard = '#af8700'
+
+# ===========
+#   Modules
+# ===========
+
+[git_branch]
+truncation_length = 6
+truncation_symbol = ''
+# ignore_branches = ['master', 'main']
+
+[git_status]
+ahead = '⇡${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+behind = '⇣${count}'
+
+[python]
+symbol = ''
+format = 'py: [${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+version_format = "v${major}.${minor}"

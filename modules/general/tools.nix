@@ -8,45 +8,28 @@
 {
   environment.systemPackages = with pkgs; [
     ### --------------- ###
+    ###       GUI       ###
+    ### --------------- ###
+    copyq
+    postman
+
+    ### --------------- ###
     ###       CLI       ###
     ### --------------- ###
     rclone
 
-    stow
     wget
 
     openconnect
 
-    git # TODO move to own file with config
-    zsh
-
     dmidecode
     netdata
-
-    neofetch
-
-    bat
 
     # btop
     btop-cuda
     htop
 
-    fd
-    eza
-    tldr
-    duf
-    lsd
-    ripgrep
-    tmux
-    zellij
-    helix
-    yazi
-
     lsyncd
-
-    fzf
-
-    jq
 
     # nix
     devenv
@@ -57,24 +40,13 @@
 
     # Linux Control tools
     smartmontools
-
-    ### --------------- ###
-    ###       GUI       ###
-    ### --------------- ###
-    copyq
-    postman
+    
+    git # TODO move to own file with config
   ];
 
   programs.direnv = {
     enable = true;
     enableBashIntegration = true;
-  };
-
-  programs.zoxide = {
-    enable = true;
-    enableBashIntegration = true;
-    flags = [
-      "--cmd cd"
-    ];
+    enableZshIntegration = true;
   };
 }

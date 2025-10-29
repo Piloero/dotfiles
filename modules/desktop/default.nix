@@ -31,13 +31,16 @@ let
 
     audacity
 
-    rustdesk
+    # rustdesk
 
     freecad-wayland
 
     passmark-performancetest
 
     gcolor3
+
+    # VPN
+    networkmanager-openvpn
   ];
 in
 {
