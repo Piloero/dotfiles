@@ -17,5 +17,5 @@ stow -t ~ -d ~/.dotfiles config-files
 ```
 
 ```
-stow -t ~ dotfiles
+stow -t ~ -d ~/.dotfiles config-files --ignore='.gitconfig'
 ```
