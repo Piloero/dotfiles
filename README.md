@@ -12,10 +12,11 @@ sudo nixos-rebuild switch --flake .
 ```
 ## stow
 To link the dotfiles directory to the home dirextory use
-```
+
+```shell
 stow -t ~ -d ~/.dotfiles config-files
 ```
 
-```
+```shell
 stow -t ~ -d ~/.dotfiles config-files --ignore='.gitconfig'
 ```
