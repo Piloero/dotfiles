@@ -56,11 +56,14 @@
     ];  
     
     programs.zoxide = {
-    enable = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true;
-    flags = [
-      "--cmd cd"
-    ];
-  };
+      enable = true;
+      enableBashIntegration = true;
+      enableZshIntegration = true;
+      flags = [
+        "--cmd cd"
+      ];
+    };
+
+    users.defaultUserShell = pkgs.zsh;
+    environment.shells = with pkgs; [ zsh ];
 }
