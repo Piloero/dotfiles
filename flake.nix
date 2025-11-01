@@ -49,7 +49,7 @@
       # You can define it for multiple systems if needed
       formatter.aarch64-darwin = nixfmt-rfc-style.packages.aarch64-darwin.nixfmt;
 
-      # makeNixOsSystem = name : 
+      # makeNixOsSystem = name :
 
       # TODO make function
       nixosConfigurations = {
@@ -79,7 +79,7 @@
           };
         };
 
-      saturn = lib.nixosSystem {
+        saturn = lib.nixosSystem {
 
           system = system;
 
@@ -98,6 +98,19 @@
 
           modules = [
             ./systems/busybeaver/busybeaver.nix
+          ];
+
+          specialArgs = {
+            inherit system pkgs-unstable inputs;
+          };
+        };
+
+        voyager = nixpkgs-unstable.lib.nixosSystem {
+
+          system = system;
+
+          modules = [
+            ./systems/voyager/voyager.nix
           ];
 
           specialArgs = {
