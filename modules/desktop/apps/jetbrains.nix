@@ -7,11 +7,11 @@
 let
   stablePackages = with pkgs; [
     jetbrains.idea-ultimate
-    jetbrains.clion
     jetbrains.rust-rover
   ];
 
   unstablePackages = with pkgs-unstable; [
+    jetbrains.clion
   ];
 in
 {
