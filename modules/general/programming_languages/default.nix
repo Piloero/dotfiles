@@ -6,7 +6,7 @@
 }:
 {
   imports = [
-    ./python.nix
+    # ./python.nix
   ];
 
   environment.systemPackages = with pkgs; [

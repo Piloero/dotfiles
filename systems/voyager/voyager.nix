@@ -24,6 +24,19 @@
   wsl.enable = true;
   wsl.defaultUser = "piloero";
 
+  # Enable wsl-vpnkit to fix VPN issues
+  systemd.services.wsl-vpnkit = {
+    enable = true;
+    description = "wsl-vpnkit";
+    after = [ "network.target" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.wsl-vpnkit}/bin/wsl-vpnkit";
+      Restart = "always";
+      KillMode = "mixed";
+    };
+  };
+
   programs.nix-ld.enable = true;
 
   # This value determines the NixOS release from which the default
