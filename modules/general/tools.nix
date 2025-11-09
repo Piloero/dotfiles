@@ -32,9 +32,9 @@
     lsyncd
 
     # nix
-    devenv
-    nixfmt-rfc-style
-    nixfmt-tree
+    # devenv
+    # nixfmt-rfc-style
+    # nixfmt-tree
 
     bind # nslookup
 
