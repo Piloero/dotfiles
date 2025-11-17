@@ -42,7 +42,7 @@
         jq
 
         fd
-        eza
+        # eza
         tldr
         duf
         lsd
