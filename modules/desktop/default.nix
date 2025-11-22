@@ -41,6 +41,9 @@ let
 
     # VPN
     networkmanager-openvpn
+
+    pgadmin4-desktopmode
+    pgadmin4
   ];
 in
 {

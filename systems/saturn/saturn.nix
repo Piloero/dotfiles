@@ -19,6 +19,8 @@
     ];
 
 
+  programs.nix-ld.enable = true;
+
   # get totem (gnome videos ) to work
   environment.variables.GDK_GL = "gles";
 
