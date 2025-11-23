@@ -25,7 +25,9 @@
 
   wsl.defaultUser = "piloero";
 
-  wsl.path.extra = [ "/run/current-system/sw/bin" ];
+  # wsl.path.extra = [ "/run/current-system/sw/bin" ];
+
+  wsl.docker-desktop.enable = true;
 
   virtualisation.docker.enable = false;
 
