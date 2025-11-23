@@ -1,10 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
-# NixOS-WSL specific options are documented on the NixOS-WSL repository:
-# https://github.com/nix-community/NixOS-WSL
-
 {
   config,
   lib,
@@ -15,19 +8,16 @@
 {
   imports = [
     # include NixOS-WSL modules
-    # <nixos-wsl/modules>
     inputs.nixos-wsl.nixosModules.wsl
     # general stuff
     ../../modules/general/default.nix
   ];
 
-  wsl.enable = true;
-
-  wsl.defaultUser = "piloero";
-
-  # wsl.path.extra = [ "/run/current-system/sw/bin" ];
-
-  wsl.docker-desktop.enable = true;
+  wsl = {
+    enable = true;
+    defaultUser = "piloero";
+    docker-desktop.enable = true;
+  }
 
   virtualisation.docker.enable = false;
 
