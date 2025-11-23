@@ -22,7 +22,26 @@
   ];
 
   wsl.enable = true;
+
   wsl.defaultUser = "piloero";
+
+  wsl.path.extra = [ "/run/current-system/sw/bin" ];
+
+  virtualisation.docker.enable = false;
+
+  environment.pathsToLink = [ "/bin" ];
+
+  # environment.sessionVariables = {
+  #   PATH = [
+  #     "/run/current-system/sw/bin"
+  #   ];
+  # };
+
+  environment.systemPackages = with pkgs; [
+    coreutils
+    docker
+    gnumake
+  ];
 
   # Enable wsl-vpnkit to fix VPN issues
   systemd.services.wsl-vpnkit = {
