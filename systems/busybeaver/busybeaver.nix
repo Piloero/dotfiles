@@ -29,14 +29,10 @@
     "flakes"
   ];
 
-  nix = {
-    settings = {
-      ssl-cert-file = "/etc/ssl/certs/ca-bundle.crt";
-    };
-  };
+  nix.settings.ssl-cert-file = "/etc/ssl/certs/ca-bundle.crt";
 
   environment.sessionVariables = {
-    REQUESTS_CA_BUNDLE = "/etc/static/ssl/certs/ca-bundle.crt";
+    REQUESTS_CA_BUNDLE = "/etc/ssl/certs/ca-bundle.crt";
   };
 
   security.pki.certificates = [
