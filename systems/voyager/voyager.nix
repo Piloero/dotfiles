@@ -17,7 +17,7 @@
     enable = true;
     defaultUser = "piloero";
     docker-desktop.enable = true;
-  }
+  };
 
   virtualisation.docker.enable = false;
 
