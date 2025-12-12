@@ -4,14 +4,18 @@
   pkgs-unstable,
   ...
 }:
-{
-  environment.systemPackages = with pkgs; [
+let
+  stablePackages = with pkgs; [
     # FilenIO
     filen-desktop
     filen-cli
-
-    # MEGA
-    megasync
-
   ];
+
+  unstablePackages = with pkgs-unstable; [
+    # MEGA
+    # megasync
+  ];
+in
+{
+  environment.systemPackages = stablePackages ++ unstablePackages;
 }

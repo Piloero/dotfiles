@@ -60,7 +60,7 @@
     pkgs.swww
 
     # applauncher
-    pkgs.rofi-wayland
+    pkgs.rofi
     pkgs.wofi
 
     # file manager
