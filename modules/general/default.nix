@@ -2,6 +2,7 @@
   config,
   pkgs,
   pkgs-unstable,
+  lib,
   ...
 }:
 
@@ -22,6 +23,7 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  programs.nix-ld.enable = lib.mkDefault true;
 
   nix = {
     gc = {
