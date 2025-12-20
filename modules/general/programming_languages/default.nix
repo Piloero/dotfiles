@@ -10,12 +10,12 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    elan
-    scala_3
-    graphviz
+    # elan
+    # scala_3
+    # graphviz
 
-    gcc
-    rustup
-    llvmPackages.bintools
+    # gcc
+    # rustup
+    # llvmPackages.bintools
   ];
 }
