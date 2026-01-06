@@ -42,7 +42,7 @@
         jq
 
         fd
-        # eza
+        eza
         tldr
         duf
         lsd
@@ -56,14 +56,14 @@
         fastfetch
     ];  
     
-    programs.zoxide = {
-      enable = true;
-      enableBashIntegration = true;
-      enableZshIntegration = true;
-      flags = [
-        "--cmd cd"
-      ];
-    };
+    # programs.zoxide = {
+    #   enable = true;
+    #   enableBashIntegration = true;
+    #   enableZshIntegration = true;
+    #   flags = [
+    #     "--cmd cd"
+    #   ];
+    # };
 
     users.defaultUserShell = pkgs.zsh;
     environment.shells = with pkgs; [ zsh ];

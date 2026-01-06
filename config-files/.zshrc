@@ -22,7 +22,7 @@ bindkey '^R' history-incremental-search-backward
 export ZSH_CUSTOM="~/.zsh/custom"
 plugins=(
   git
-  # eza
+  eza
   fzf
   git-commit
 
