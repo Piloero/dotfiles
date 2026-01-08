@@ -15,7 +15,6 @@
     ../../modules/general/default.nix
     ../../modules/desktop/x11-desktop-env.nix
   ];
-
   wsl.enable = true;
   wsl.defaultUser = "nixos";
 
@@ -33,5 +32,7 @@
     obsidian
   ];
 
-  system.stateVersion = "24.11"; # Did you read the comment?
+  networking.networkmanager.enable = false;
+
+  system.stateVersion = "24.11";
 }
