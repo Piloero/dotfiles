@@ -20,8 +20,6 @@
 
     wget
 
-    openconnect
-
     dmidecode
     netdata
 
@@ -32,9 +30,7 @@
     lsyncd
 
     # nix
-    # devenv
-    # nixfmt-rfc-style
-    # nixfmt-tree
+    nixfmt-rfc-style
 
     bind # nslookup
 

@@ -14,6 +14,7 @@
     ./fonts.nix
     ./vim.nix
     ./shell.nix
+    ./networking.nix
   ];
 
   nix.settings.experimental-features = [

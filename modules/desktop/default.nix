@@ -39,9 +39,6 @@ let
 
     gcolor3
 
-    # VPN
-    networkmanager-openvpn
-
     pgadmin4-desktopmode
     pgadmin4
   ];
