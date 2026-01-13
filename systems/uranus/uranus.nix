@@ -18,7 +18,6 @@
     ../../modules/desktop/nvidia.nix
   ];
 
-
   # get totem (gnome videos ) to work
   environment.variables.GDK_GL = "gles";
 

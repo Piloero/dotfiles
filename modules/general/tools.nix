@@ -36,7 +36,7 @@
 
     # Linux Control tools
     smartmontools
-    
+
     git # TODO move to own file with config
   ];
 

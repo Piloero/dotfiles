@@ -5,10 +5,10 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ 
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-          # general stuff
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    # general stuff
     ../../modules/general/default.nix
     # desktop specific
     ../../modules/desktop/default.nix
@@ -16,8 +16,7 @@
     ../../modules/gaming/gaming.nix
     # nvidia
     ../../modules/desktop/nvidia.nix
-    ];
-
+  ];
 
   # get totem (gnome videos ) to work
   environment.variables.GDK_GL = "gles";
@@ -82,7 +81,10 @@
   users.users.piloero = {
     isNormalUser = true;
     description = "piloero";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [ ];
     useDefaultShell = true;
   };

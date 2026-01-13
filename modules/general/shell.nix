@@ -6,65 +6,65 @@
   ...
 }:
 {
-    programs.zsh = {
-        enable = true;
-        enableCompletion = true;
-        autosuggestions.enable = true;
-        syntaxHighlighting.enable = true;
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
 
-        shellAliases = {
-            ll = "ls -l";
-            edit = "sudo -e";
-            # update = "sudo nixos-rebuild switch";
-        };
-
-        histSize = 10000;
-        histFile = "$HOME/.zsh_history";
-        setOptions = [
-            "HIST_IGNORE_ALL_DUPS"
-        ];
-        ohMyZsh = {
-            enable = true;
-        };
+    shellAliases = {
+      ll = "ls -l";
+      edit = "sudo -e";
+      # update = "sudo nixos-rebuild switch";
     };
 
-    environment.systemPackages = with pkgs; [
-        starship
-        oh-my-zsh
+    histSize = 10000;
+    histFile = "$HOME/.zsh_history";
+    setOptions = [
+      "HIST_IGNORE_ALL_DUPS"
+    ];
+    ohMyZsh = {
+      enable = true;
+    };
+  };
 
-        # =====================
-        # Command Line Tools
-        # =====================
-        stow
+  environment.systemPackages = with pkgs; [
+    starship
+    oh-my-zsh
 
-        fzf
+    # =====================
+    # Command Line Tools
+    # =====================
+    stow
 
-        jq
+    fzf
 
-        fd
-        eza
-        tldr
-        duf
-        lsd
-        ripgrep
-        tmux
-        zellij
-        helix
-        yazi
-        bat
+    jq
 
-        fastfetch
-    ];  
-    
-    # programs.zoxide = {
-    #   enable = true;
-    #   enableBashIntegration = true;
-    #   enableZshIntegration = true;
-    #   flags = [
-    #     "--cmd cd"
-    #   ];
-    # };
+    fd
+    eza
+    tldr
+    duf
+    lsd
+    ripgrep
+    tmux
+    zellij
+    helix
+    yazi
+    bat
 
-    users.defaultUserShell = pkgs.zsh;
-    environment.shells = with pkgs; [ zsh ];
+    fastfetch
+  ];
+
+  # programs.zoxide = {
+  #   enable = true;
+  #   enableBashIntegration = true;
+  #   enableZshIntegration = true;
+  #   flags = [
+  #     "--cmd cd"
+  #   ];
+  # };
+
+  users.defaultUserShell = pkgs.zsh;
+  environment.shells = with pkgs; [ zsh ];
 }
