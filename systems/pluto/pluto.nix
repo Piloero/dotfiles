@@ -13,7 +13,7 @@
   imports = [
     # Include the results of the hardware scan.
     # hardware
-    ./laptop-hardware-configuration.nix
+    ./pluto-hardware-configuration.nix
     # general stuff
     ../../modules/general/default.nix
     # desktop specific
@@ -28,7 +28,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "jonaslaptop"; # Define your hostname.
+  networking.hostName = "pluto"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -80,9 +80,9 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.jonas = {
+  users.users.piloero = {
     isNormalUser = true;
-    description = "jonas";
+    description = "piloero";
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -114,5 +114,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 }
