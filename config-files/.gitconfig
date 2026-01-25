@@ -1,8 +1,8 @@
-[credential]
-	helper = store
 [user]
 	email = piloero@proton.me
 	name = Piloero
+[credential]
+	helper = store
 
 # config from https://blog.gitbutler.com/how-git-core-devs-configure-git
 [column]
@@ -35,6 +35,7 @@
         autoupdate = true
 [core]
         excludesfile = ~/.gitignore
+        editor = vim
 [rebase]
         autoSquash = true
         autoStash = true
@@ -46,3 +47,9 @@
         conflictstyle = diff3
 [pull]
         # rebase = true
+[alias]
+        wta = "!f() { git worktree add \"./$1\" \"$1\"; }; f"
+        wtr = "!f() { git worktree remove \"./$1\"; }; f"
+        wtl = "!f() { git worktree list; }; f"
+        wtab = "!f() { git worktree add -b \"$1\" \"./$1\"; }; f"
+

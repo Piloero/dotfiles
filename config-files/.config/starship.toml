@@ -19,7 +19,7 @@ palette = 'foo'
 
 [character]
 success_symbol = "[->](bold green) "
-error_symbol = "[-x](bold red) "
+error_symbol = "[x](bold red) "
 
 # Define custom colors
 [palettes.foo]
@@ -36,6 +36,7 @@ mustard = '#af8700'
 truncation_length = 6
 truncation_symbol = ''
 # ignore_branches = ['master', 'main']
+ignore_bare_repo = true
 
 [git_status]
 ahead = '⇡${count}'
