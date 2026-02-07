@@ -14,6 +14,7 @@
     ./vim.nix
     ./shell.nix
     ./networking.nix
+    ./git.nix
   ];
 
   nix.settings.experimental-features = [
