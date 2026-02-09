@@ -51,6 +51,8 @@
 
       # makeNixOsSystem = name :
 
+      packages.${system}.gitbutler = pkgs-stable.callPackage ./modules/general/gitbutler.nix {};
+
       # TODO make function
       nixosConfigurations = {
         pluto = lib.nixosSystem {

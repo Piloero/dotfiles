@@ -36,4 +36,8 @@
       download-buffer-size = 500000000; # 500 MB
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    (pkgs.callPackage ./gitbutler.nix {})
+  ];
 }

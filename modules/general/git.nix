@@ -10,13 +10,10 @@ let
   ];
 
   stablePackages = with pkgs; [
-    gitbutler
     git
   ];
 in
 {
-  imports = [
-  ];
-
+  # imports = [ ];
   environment.systemPackages = stablePackages ++ unstablePackages;
 }
