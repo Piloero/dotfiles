@@ -53,3 +53,5 @@
         wtl = "!f() { git worktree list; }; f"
         wtab = "!f() { git worktree add -b \"$1\" \"./$1\"; }; f"
 
+[gitbutler]
+	aiModelProvider = openai
