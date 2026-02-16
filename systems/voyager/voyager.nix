@@ -43,7 +43,9 @@
     };
   };
 
-  system.stateVersion = "25.05";
+  networking.networkmanager.enable = false;
 
   services.openssh.enable = true;
+
+  system.stateVersion = "25.05";
 }
