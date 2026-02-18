@@ -8,9 +8,6 @@
 
     # WSL
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
-
-    # Formatting (is it even needed anymore?)
-    nixfmt-rfc-style.url = "github:nixos/nixfmt";
   };
 
   outputs =
@@ -19,7 +16,6 @@
       nixpkgs,
       nixpkgs-unstable,
       nixos-wsl,
-      nixfmt-rfc-style,
     }@inputs:
     let
 
@@ -43,15 +39,9 @@
 
     in
     {
-      # Define the formatter for a specific system (e.g., x86_64-linux)
-      formatter.x86_64-linux = nixfmt-rfc-style.packages.x86_64-linux.nixfmt;
-
-      # You can define it for multiple systems if needed
-      formatter.aarch64-darwin = nixfmt-rfc-style.packages.aarch64-darwin.nixfmt;
-
+      # TODO make function
       # makeNixOsSystem = name :
 
-      # TODO make function
       nixosConfigurations = {
         pluto = lib.nixosSystem {
 

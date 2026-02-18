@@ -30,7 +30,7 @@
     lsyncd
 
     # nix
-    nixfmt-rfc-style
+    nixfmt
 
     bind # nslookup
 
