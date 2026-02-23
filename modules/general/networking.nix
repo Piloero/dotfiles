@@ -10,6 +10,7 @@
 
   networking.networkmanager.plugins = with pkgs; [
     networkmanager-openconnect
+    networkmanager-openvpn
   ];
 
   environment.systemPackages = with pkgs; [
@@ -17,5 +18,7 @@
 
     # VPN
     networkmanager-openvpn
+    openvpn
+    openconnect
   ];
 }
