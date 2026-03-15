@@ -64,7 +64,7 @@
     pkgs.wofi
 
     # file manager
-    pkgs.kdePackages.dolphin
+    # pkgs.kdePackages.dolphin
     pkgs.kdePackages.qtwayland
     pkgs.kdePackages.qtsvg
     pkgs.kdePackages.kio-fuse
