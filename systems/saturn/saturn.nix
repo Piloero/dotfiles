@@ -18,6 +18,16 @@
     ../../modules/desktop/nvidia.nix
   ];
 
+  fileSystems."/mnt/hdd1t" = {
+    device = "/dev/disk/by-uuid/3626371b-181f-42fa-8b05-ceab8152d3ad";
+    fsType = "ext4";
+    options = [
+      "defaults"
+      "nofail" # Prevents boot hang if the drive is missing
+      "user"
+    ];
+  };
+
   # get totem (gnome videos ) to work
   environment.variables.GDK_GL = "gles";
 
