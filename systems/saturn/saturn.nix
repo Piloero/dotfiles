@@ -25,10 +25,11 @@
       "defaults"
       "nofail" # Prevents boot hang if the drive is missing
       "user"
+      "x-gvfs-show" # Gnome Virtual file system show device
     ];
   };
 
-  # get totem (gnome videos ) to work
+  # get totem (gnome videos) to work
   environment.variables.GDK_GL = "gles";
 
   # hardware.graphics.enable = true;
