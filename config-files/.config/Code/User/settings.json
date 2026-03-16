@@ -1,0 +1,75 @@
+{
+    // Core UX
+    "files.autoSave": "afterDelay",
+    "explorer.confirmDragAndDrop": false,
+    "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-auto",
+    "makefile.configureOnOpen": true,
+
+    // Editor
+    "editor.lineNumbers": "relative",
+    "editor.semanticHighlighting.enabled": true,
+
+    // Terminal
+    "terminal.integrated.scrollback": 10000,
+    "terminal.integrated.persistentSessionScrollback": 1000,
+
+    // Git
+    "git.blame.editorDecoration.enabled": true,
+    "git.blame.statusBarItem.enabled": false,
+
+    // Python
+    "python.languageServer": "Default",
+    "python.analysis.indexing": true,
+
+    // Vim
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+        "<C-p>": false,
+        "<C-d>": true,
+        "<C-s>": false,
+        "<C-z>": false,
+        "<C-f>": false,
+        "<C-v>": false,
+        "<C-a>": false
+    },
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "k",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "<Esc>"
+            ],
+            "commands": [
+                ":noh"
+            ]
+        }
+    ],
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "vim.incsearch": true,
+    "vim.smartRelativeLineNumbers": true,
+    "vim.smartRelativeLine": true,
+    "vim.easymotion": true,
+    "vim.easymotionMarkerBackgroundColor": "#007acc",
+    "vim.easymotionMarkerForegroundColor": "#ffffff",
+    "vim.easymotionMarkerFontWeight": "bold",
+    "vim.easymotionKeys": "asdfjklghweruiopvzxcbnm",
+
+    // Extensions
+    "hediet.vscode-drawio.resizeImages": null,
+    "hediet.vscode-drawio.theme": "kennedy",
+    "hediet.vscode-drawio.appearance": "dark",
+
+    // Copilot + Chat
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "chat.agent.maxRequests": 100,
+}
