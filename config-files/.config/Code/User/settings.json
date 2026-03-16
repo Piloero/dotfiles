@@ -2,8 +2,11 @@
     // Core UX
     "files.autoSave": "afterDelay",
     "explorer.confirmDragAndDrop": false,
-    "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-auto",
+    "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-dark",
     "makefile.configureOnOpen": true,
+    "editor.fontSize": 14,
+    "editor.lineHeight": 1.6,
+    "editor.fontFamily": "JetBrains Mono, Consolas, 'Courier New', monospace",
 
     // Editor
     "editor.lineNumbers": "relative",
