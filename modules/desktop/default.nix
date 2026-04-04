@@ -8,6 +8,7 @@ let
   unstablePackages = with pkgs-unstable; [
     ghostty
     vscode
+    zed-editor
   ];
 
   stablePackages = with pkgs; [
