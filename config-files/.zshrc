@@ -35,3 +35,5 @@ source $ZSH/oh-my-zsh.sh
 # Starship
 # =============
 eval "$(starship init zsh)"
+
+. "$HOME/.local/bin/env"
