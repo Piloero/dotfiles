@@ -36,4 +36,6 @@ source $ZSH/oh-my-zsh.sh
 # =============
 eval "$(starship init zsh)"
 
-. "$HOME/.local/bin/env"
+if [[ -s "$HOME/.local/bin/env" ]]; then
+    source "$HOME/.local/bin/env"
+fi
