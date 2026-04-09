@@ -30,20 +30,29 @@
     # gnumake
   ];
 
-  # Enable wsl-vpnkit to fix VPN issues
-  systemd.services.wsl-vpnkit = {
-    enable = true;
-    description = "wsl-vpnkit";
-    after = [ "network.target" ];
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      ExecStart = "${pkgs.wsl-vpnkit}/bin/wsl-vpnkit";
-      Restart = "always";
-      KillMode = "mixed";
-    };
-  };
+  # # Enable wsl-vpnkit to fix VPN issues
+  # systemd.services.wsl-vpnkit = {
+  #   enable = true;
+  #   description = "wsl-vpnkit";
+  #   after = [ "network.target" ];
+  #   wantedBy = [ "multi-user.target" ];
+  #   serviceConfig = {
+  #     ExecStart = "${pkgs.wsl-vpnkit}/bin/wsl-vpnkit";
+  #     Restart = "always";
+  #     KillMode = "mixed";
+  #   };
+  # };
+
+  # A .wslconfig file is required
+  # [wsl2]
+  # networkingMode=mirrored
+  # dnsTunneling=true
+  # firewall=true
+  # autoProxy=true
+
 
   networking.networkmanager.enable = false;
+  networking.firewall.enable = false;
 
   services.openssh.enable = true;
 
