@@ -48,8 +48,8 @@
     lsd
     ripgrep
     tmux
-    zellij
-    helix
+    # zellij
+    # helix
     yazi
     bat
 
