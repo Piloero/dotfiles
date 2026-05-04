@@ -1,9 +1,4 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
-
 {
   imports = [
     # Include the results of the hardware scan.
@@ -28,6 +23,23 @@
       "x-gvfs-show" # Gnome Virtual file system show device
     ];
   };
+
+  fileSystems."/mnt/512ssd" = {
+    device = "/dev/disk/by-uuid/6bdff31f-27d2-47b6-acc3-f44352b1c23a";
+    fsType = "ext4";
+    options = [
+      "defaults"
+      "nofail" # Prevents boot hang if the drive is missing
+      "user"
+      "x-gvfs-show" # Gnome Virtual file system show device
+    ];
+  };
+
+  boot.kernelModules = [
+    "nct6775" # Common for older/mid-range MSI boards
+    "nct6683" # Common for newer MSI/ASUS boards (supports NCT6687)
+    "i2c-dev" # Allows user-space tools to talk to the I2C bus
+  ];
 
   # get totem (gnome videos) to work
   environment.variables.GDK_GL = "gles";
@@ -99,25 +111,6 @@
     packages = with pkgs; [ ];
     useDefaultShell = true;
   };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
