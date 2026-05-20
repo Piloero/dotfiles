@@ -54,6 +54,8 @@
     bat
 
     fastfetch
+
+    tabiew
   ];
 
   # programs.zoxide = {
