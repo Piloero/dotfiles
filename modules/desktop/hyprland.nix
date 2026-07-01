@@ -57,7 +57,7 @@
     }))
 
     # wallpaper
-    pkgs.swww
+    pkgs.awww
 
     # applauncher
     pkgs.rofi
