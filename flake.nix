@@ -8,6 +8,9 @@
 
     # WSL
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+
+    # NUR 
+    nur.url = "github:nix-community/NUR";
   };
 
   outputs =
@@ -16,97 +19,44 @@
       nixpkgs,
       nixpkgs-unstable,
       nixos-wsl,
+      nur,
     }@inputs:
     let
-
       system = "x86_64-linux";
 
       pkgs-stable = import nixpkgs {
         inherit system;
-        config = {
-          allowUnfree = true;
-        };
+        config = { allowUnfree = true; };
+        overlays = [ nur.overlays.default ];
       };
 
       pkgs-unstable = import nixpkgs-unstable {
         inherit system;
-        config = {
-          allowUnfree = true;
-        };
+        config = { allowUnfree = true; };
+        overlays = [ nur.overlays.default ];
       };
 
-      lib = nixpkgs.lib;
-
+      mkSystem = name:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [ 
+            ./systems/${name}/${name}.nix
+            
+            { nixpkgs.pkgs = pkgs-stable; }
+          ];
+          
+          specialArgs = {
+            inherit system pkgs-unstable inputs;
+          };
+        };
     in
     {
-      # TODO make function
-      # makeNixOsSystem = name :
-
       nixosConfigurations = {
-        pluto = lib.nixosSystem {
-
-          system = system;
-
-          modules = [
-            ./systems/pluto/pluto.nix
-          ];
-
-          specialArgs = {
-            inherit system pkgs-unstable;
-          };
-        };
-
-        uranus = lib.nixosSystem {
-
-          system = system;
-
-          modules = [
-            ./systems/uranus/uranus.nix
-          ];
-
-          specialArgs = {
-            inherit system pkgs-unstable;
-          };
-        };
-
-        saturn = lib.nixosSystem {
-
-          system = system;
-
-          modules = [
-            ./systems/saturn/saturn.nix
-          ];
-
-          specialArgs = {
-            inherit system pkgs-unstable;
-          };
-        };
-
-        busybeaver = nixpkgs-unstable.lib.nixosSystem {
-
-          system = system;
-
-          modules = [
-            ./systems/busybeaver/busybeaver.nix
-          ];
-
-          specialArgs = {
-            inherit system pkgs-unstable inputs;
-          };
-        };
-
-        voyager = nixpkgs-unstable.lib.nixosSystem {
-
-          system = system;
-
-          modules = [
-            ./systems/voyager/voyager.nix
-          ];
-
-          specialArgs = {
-            inherit system pkgs-unstable inputs;
-          };
-        };
+        pluto      = mkSystem "pluto";
+        uranus     = mkSystem "uranus";
+        saturn     = mkSystem "saturn";
+        busybeaver = mkSystem "busybeaver";
+        voyager    = mkSystem "voyager";
       };
     };
 }
