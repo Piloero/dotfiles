@@ -2,7 +2,7 @@
     // Core UX
     "files.autoSave": "afterDelay",
     "explorer.confirmDragAndDrop": false,
-    "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-dark",
+    "workbench.iconTheme": "catppuccin-mocha",
     "makefile.configureOnOpen": true,
     "editor.fontSize": 14,
     "editor.lineHeight": 1.6,
@@ -79,5 +79,6 @@
     "chat.tools.terminal.autoApprove": {
         "mypy": true
     },
+    "workbench.colorTheme": "Catppuccin Mocha",
     "diffEditor.ignoreTrimWhitespace": false,
 }
