@@ -41,6 +41,7 @@
     smartmontools
 
     git # TODO move to own file with config
+    gitbutler
   ];
 
   programs.direnv = {
