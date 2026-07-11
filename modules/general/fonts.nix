@@ -9,6 +9,10 @@
 
   # Enable nerd fonts and set JetBrains Mono as default
   fonts = {
+    # Enables font directory syncing so applications can discover them
+    # maybe need to do: fc-cache -f -v
+    fontDir.enable = true;
+
     packages = with pkgs; [
       nerd-fonts.jetbrains-mono
 
