@@ -2,48 +2,89 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 add_newline = true
-
 command_timeout = 1300
 scan_timeout = 60
-
 follow_symlinks = true
 
-format = "$all$battery"
-# format = '''
-# [┌───────────────────>](bold green)
-# [│](bold green)$directory$rust$package
-# [└─>](bold green) '''
+# Merged format configuration from your Nix file
+format = "[\\[](bold bright-black)$username$hostname[\\]](bold bright-black) $directory$git_branch${custom.git_dirty}$git_status[$all](248)$battery"
+right_format = "$status"
 
 # Set 'foo' as custom color palette
 palette = 'foo'
 
 [character]
-success_symbol = "[->](bold green) "
-error_symbol = "[x](bold red) "
+success_symbol = "[❯](bold cyan)"
+error_symbol = "[❯](bold red)"
 
 # Define custom colors
 [palettes.foo]
-# Overwrite existing color
 blue = '21'
-# Define new color
 mustard = '#af8700'
 
 # ===========
-#   Modules
+#  Modules
 # ===========
 
+[username]
+show_always = true
+style_user = "bold green"
+style_root = "bold red"
+format = "[$user]($style)"
+
+[hostname]
+ssh_only = false
+style = "bold prev_fg"
+# Natively falls back to your custom override variable if defined, otherwise uses standard hostname
+format = "[@$env$hostname]($style)"
+
+[cmd_duration]
+disabled = true
+
+[directory]
+style = "bold blue"
+truncation_length = 10
+
 [git_branch]
+style = "red"
+format = "[\\(](bold bright-black)[$branch]($style)[\\)](bold bright-black) "
 truncation_length = 6
 truncation_symbol = ''
-# ignore_branches = ['master', 'main']
 ignore_bare_repo = true
 
 [git_status]
+style = "bold bright-purple"
+format = "([$ahead_behind]($style) )"
+up_to_date = ""
 ahead = '⇡${count}'
-diverged = '⇕⇡${ahead_count}⇣${behind_count}'
 behind = '⇣${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+
+[status]
+disabled = false
+symbol = "⏎"
+style = "red"
+format = "[$symbol]($style)"
+
+[package]
+disabled = true
+
+# [nix_shell]
+# format = "in [$symbol]($style)"
+
+[nix_shell]
+format = "via [$symbol$state( \\($name\\))]($style) "
+symbol = "❄️ "
+style = "bold blue"
+impure_msg = "impure"
+pure_msg = "pure"
 
 [python]
 symbol = ''
 format = 'py: [${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 version_format = "v${major}.${minor}"
+
+[custom.git_dirty]
+# Points to the exact local path inside your standard home configuration path
+command = "zsh ~/.config/starship/starship-git-dirty.zsh"
+format = "[⚡](yellow) "

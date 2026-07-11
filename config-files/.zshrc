@@ -19,15 +19,18 @@ bindkey '^R' history-incremental-search-backward
 # =============
 # oh my zsh
 # =============
-export ZSH_CUSTOM="~/.zsh/custom"
+# Note: Expanded the tilde (~) to $HOME to prevent potential sourcing path bugs
+export ZSH_CUSTOM="$HOME/.zsh/custom"
+
 plugins=(
   git
   eza
   fzf
   git-commit
 
-  # custom
-  # global-alias
+  # Custom plugins loaded automatically from $ZSH_CUSTOM/plugins/
+  global-alias
+  custom-utils
 )
 source $ZSH/oh-my-zsh.sh
 
