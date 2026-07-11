@@ -6,9 +6,8 @@ command_timeout = 1300
 scan_timeout = 60
 follow_symlinks = true
 
-# Merged format configuration from your Nix file
 format = "[\\[](bold bright-black)$username$hostname[\\]](bold bright-black) $directory$git_branch${custom.git_dirty}$git_status[$all](248)$battery"
-right_format = "$status"
+right_format = "$cmd_duration$status"
 
 # Set 'foo' as custom color palette
 palette = 'foo'
@@ -39,7 +38,10 @@ style = "bold prev_fg"
 format = "[@$env$hostname]($style)"
 
 [cmd_duration]
-disabled = true
+# disabled = true
+min_time = 0
+format = "took [$duration]($style) "
+style = "yellow bold"
 
 [directory]
 style = "bold blue"
