@@ -21,6 +21,8 @@
     "flakes"
   ];
 
+  programs.nix-ld.enable = lib.mkDefault true;
+
   nix = {
     gc = {
       automatic = true;
