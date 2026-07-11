@@ -42,6 +42,7 @@
 
     git # TODO move to own file with config
     gitbutler
+    pkgs.nur.repos.Alxandr.gitbutler-cli
   ];
 
   programs.direnv = {
