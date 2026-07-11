@@ -14,6 +14,7 @@ let
   unstablePackages = with pkgs-unstable; [
     # MEGA
     megasync
+    megacmd
   ];
 in
 {
