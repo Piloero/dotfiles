@@ -43,6 +43,9 @@
     git # TODO move to own file with config
     gitbutler
     pkgs.nur.repos.Alxandr.gitbutler-cli
+
+    # AI tools
+    pkgs-unstable.codex
   ];
 
   programs.direnv = {

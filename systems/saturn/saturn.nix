@@ -11,6 +11,8 @@
     ../../modules/gaming/gaming.nix
     # nvidia
     ../../modules/desktop/nvidia.nix
+    # apps
+    ../../modules/desktop/apps/easyeffects.nix
   ];
 
   fileSystems."/mnt/hdd1t" = {
@@ -107,10 +109,12 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "docker"
     ];
     packages = with pkgs; [ ];
     useDefaultShell = true;
   };
+  virtualisation.docker.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

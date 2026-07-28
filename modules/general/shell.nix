@@ -48,6 +48,7 @@
     lsd
     ripgrep
     tmux
+    pkgs-unstable.herdr
     # zellij
     # helix
     yazi
