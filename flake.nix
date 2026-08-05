@@ -51,6 +51,8 @@
         };
     in
     {
+      formatter.${system} = pkgs-stable.nixfmt;
+
       nixosConfigurations = {
         pluto      = mkSystem "pluto";
         uranus     = mkSystem "uranus";
