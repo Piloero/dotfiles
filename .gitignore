@@ -2,3 +2,4 @@ config-files/.config/herdr/herdr-client.log
 config-files/.config/herdr/herdr-server.log
 config-files/.config/herdr/release-notes.json
 config-files/.config/herdr/session.json
+config-files/.config/btop/btop.conf
