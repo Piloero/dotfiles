@@ -22,6 +22,7 @@
       "defaults"
       "nofail" # Prevents boot hang if the drive is missing
       "user"
+      "exec"
       "x-gvfs-show" # Gnome Virtual file system show device
     ];
   };
@@ -34,6 +35,7 @@
       "nofail" # Prevents boot hang if the drive is missing
       "user"
       "x-gvfs-show" # Gnome Virtual file system show device
+      "exec"
     ];
   };
 
