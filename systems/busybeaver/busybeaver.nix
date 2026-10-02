@@ -30,6 +30,7 @@
 
   environment.systemPackages = with pkgs; [
     obsidian
+    azure-cli
   ];
 
   networking.networkmanager.enable = false;
