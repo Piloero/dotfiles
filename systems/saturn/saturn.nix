@@ -9,6 +9,8 @@
     ../../modules/desktop/default.nix
     # gaming stuff
     ../../modules/gaming/gaming.nix
+    # ../../modules/gaming/wivrn.nix
+    # ../../modules/gaming/alvr.nix
     # nvidia
     ../../modules/desktop/nvidia.nix
     # apps
@@ -27,17 +29,17 @@
     ];
   };
 
-  fileSystems."/mnt/512ssd" = {
-    device = "/dev/disk/by-uuid/6bdff31f-27d2-47b6-acc3-f44352b1c23a";
-    fsType = "ext4";
-    options = [
-      "defaults"
-      "nofail" # Prevents boot hang if the drive is missing
-      "user"
-      "x-gvfs-show" # Gnome Virtual file system show device
-      "exec"
-    ];
-  };
+  # fileSystems."/mnt/512ssd" = {
+  #   device = "/dev/disk/by-uuid/6bdff31f-27d2-47b6-acc3-f44352b1c23a";
+  #   fsType = "ext4";
+  #   options = [
+  #     "defaults"
+  #     "nofail" # Prevents boot hang if the drive is missing
+  #     "user"
+  #     "x-gvfs-show" # Gnome Virtual file system show device
+  #     "exec"
+  #   ];
+  # };
 
   boot.kernelModules = [
     "nct6775" # Common for older/mid-range MSI boards
@@ -51,10 +53,25 @@
   # hardware.graphics.enable = true;
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    timeout = 5;
 
-  networking.hostName = "saturn"; # Define your hostname.
+    systemd-boot = {
+      enable = true;
+
+      windows."11" = {
+        title = "Windows 11";
+        efiDeviceHandle = "HD1b";
+        sortKey = "z_windows";
+      };
+
+      edk2-uefi-shell.enable = false;
+    };
+
+    efi.canTouchEfiVariables = true;
+  };
+
+  networking.hostName = "saturn";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
