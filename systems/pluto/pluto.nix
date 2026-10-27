@@ -22,6 +22,7 @@
     ../../modules/desktop/apps/kanata.nix
     # gaming stuff
     ../../modules/gaming/gaming.nix
+    ./windows-vm.nix
   ];
 
   # Bootloader
