@@ -29,7 +29,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  systemd.services.systemd-suspend.environment.SYSTEMD_SLEEP_FREEZE_USER_SESSIONS = "false";
+  # FIX: linux regression: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ab06eb9204010c61e754bf4e71ee6f554584714d
+  # will be fixed in 6.18
+
+  # systemd.services.systemd-suspend.environment.SYSTEMD_SLEEP_FREEZE_USER_SESSIONS = "false";
+  boot.blacklistedKernelModules = [ "tiny_power_button" ];
 
   networking.hostName = "pluto"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
